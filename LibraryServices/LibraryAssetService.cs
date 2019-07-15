@@ -7,12 +7,12 @@ using LibraryData.Models;
 
 namespace LibraryServices
 {
-    public class LibraryAsset : ILibraryAsset
+    public class LibraryAssetService : ILibraryAsset
 
     {
         private readonly LibraryContext _Context;
 
-        public LibraryAsset(LibraryContext _context)
+        public LibraryAssetService(LibraryContext _context)
         {
             _Context = _context;
         }
@@ -78,7 +78,10 @@ namespace LibraryServices
             var asset = await _Context.Books.FirstOrDefaultAsync(a => a.Id == id);
             if (asset == null)
             {
-                return null;
+                 var videoAsset = await _Context.Videos.FirstOrDefaultAsync(a => a.Id == id);
+                if (videoAsset == null)
+                    return null;
+                else return videoAsset.Location;
             }
             else return asset.Location;
         }

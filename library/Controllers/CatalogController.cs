@@ -44,9 +44,29 @@ namespace library.Controllers
         }
 
         // GET: Catalog/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            return View();
+            var a= await _assets.GetById(id);
+
+            var newAsset = new AssetDetailViewModel
+            {
+                Id = a.Id,
+                ImgUrl = a.ImgUrl,
+                Title = a.Title,
+                AuthorOrDirector = await _assets.GetAuthorOrDirector(a.Id),
+                Type = await _assets.GetType(a.Id),
+                DeweyNumber = await _assets.GetDeweyIndex(a.Id),
+                Year = a.Year,
+                ISBN = await _assets.GetISBN(a.Id),
+                Status= a.Status.Name,
+                Price=a.Price,
+                CurrentLocation= _assets.GetLibraryBranch(a.Id).Result.Name,
+           
+       
+            };
+
+
+            return View(newAsset);
         }
 
         // GET: Catalog/Create

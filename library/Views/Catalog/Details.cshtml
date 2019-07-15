@@ -1,0 +1,51 @@
+﻿@model library.Models.Catalog.AssetDetailViewModel
+
+
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-2">  
+                <img src="@Html.DisplayFor(model => model.ImgUrl)" />
+            </div>
+            <div class="col-md-10">
+                <h1>@Html.DisplayFor(model => model.Title)</h1>
+                @if (Model.Type == "Book") { 
+                    <h3>by: @Html.DisplayFor(model => model.AuthorOrDirector)</h3>}
+                @if (Model.Type == "Video") { 
+                    <h3>Directed by: @Html.DisplayFor(model => model.AuthorOrDirector)</h3>}
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                @if (Model.Type == "Book")
+                {
+                    <p style="display:inline;">Published: @Html.DisplayFor(model => model.Year)</p>
+                }
+                @if (Model.Type == "Video")
+                {
+                <p style="display:inline;">Released: @Html.DisplayFor(model => model.Year)</p>}<br/>
+                Library Branch: @Html.DisplayFor(model => model.CurrentLocation)<br />
+                Status: @Html.DisplayFor(model => model.Status)
+            </div>
+            <div class="col-md-6">
+                @if (Model.Type == "Book")
+                {
+
+                    <p style="display:inline;">ISBN: @Html.DisplayFor(model => model.ISBN)</p><br/>
+                    <p style="display:inline;">Dewey Call Number: @Html.DisplayFor(model => model.DeweyNumber)</p><br/>}
+                Price: $@Html.DisplayFor(model => model.Price)
+            </div>
+        </div>
+</div>
+
+
+
+
+
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -38,7 +38,7 @@ INSERT INTO Status
 SELECT * FROM Status
 
 INSERT INTO LibraryAssets
-(Discriminator, Price, LocationId, StatusId, Author, DeweyIndex, ISBN, Title, [Year], Director, ImgUrl, NumberOfCopies) VALUES
+(Discriminator, Price, LocationId, StatusId, Author, DeweyIndex, ISBN, Title, [Year], [Director], ImgUrl, NumberOfCopies) VALUES
 ('Book', 18.00, 2, 2, 'Jane Austen', '823.123', '9781519202987', 'Emma', 1815, NULL, '/images/emma.png', 1),
 ('Book', 18.00, 3, 2, 'Charlotte Brontë', '822.133', '9781519133977', 'Jane Eyre', 1847, NULL, '/images/janeeyre.png', 1),
 ('Book', 12.99, 2, 2, 'Herman Melville', '821.153', '9780746062760', 'Moby Dick', 1851, NULL, '/images/mobydick.png', 1),

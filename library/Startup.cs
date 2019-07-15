@@ -15,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using LibraryData;
 using LibraryData.Models;
+using LibraryData.Interfaces;
 
 namespace library
 {
@@ -48,7 +49,8 @@ namespace library
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
 
-            services.AddScoped<ILibraryAsset, LibraryServices.LibraryAsset>();
+            services.AddScoped<ILibraryAsset, LibraryServices.LibraryAssetService>();
+            services.AddScoped<ICheckout, LibraryServices.CheckoutService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
