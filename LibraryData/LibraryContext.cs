@@ -12,17 +12,17 @@ namespace LibraryData
 
         }
 
-        DbSet<Book> Books { get; set; }
-        DbSet<BranchHours> BranchHours { get; set; }
-        DbSet<Checkout> Checkouts { get; set; }
-        DbSet<CheckoutHistory> CheckoutHistories { get; set; }
-        DbSet<Holds> Holds { get; set; }
-        DbSet<LibraryAsset> LibraryAssets { get; set; }
-        DbSet<LibraryBranch> LibraryBranches { get; set; }
-        DbSet<LibraryCard> LibraryCards { get; set; }
-        DbSet<Patron> Patrons { get; set; }
-        DbSet<Status> Status { get; set; }
-        DbSet<Video> Videos { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<BranchHours> BranchHours { get; set; }
+        public DbSet<Checkout> Checkouts { get; set; }
+        public DbSet<CheckoutHistory> CheckoutHistories { get; set; }
+        public DbSet<Holds> Holds { get; set; }
+        public DbSet<LibraryAsset> LibraryAssets { get; set; }
+        public DbSet<LibraryBranch> LibraryBranches { get; set; }
+        public DbSet<LibraryCard> LibraryCards { get; set; }
+        public DbSet<Patron> Patrons { get; set; }
+        public DbSet<Status> Status { get; set; }
+        public DbSet<Video> Videos { get; set; }
 
     }
 }

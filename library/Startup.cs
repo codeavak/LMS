@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using LibraryData;
+using LibraryData.Models;
 
 namespace library
 {
@@ -45,6 +46,9 @@ namespace library
                 .AddEntityFrameworkStores<LibraryContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+
+            services.AddScoped<ILibraryAsset, LibraryServices.LibraryAsset>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

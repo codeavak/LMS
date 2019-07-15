@@ -230,20 +230,6 @@ namespace library.Migrations
                     b.ToTable("Status");
                 });
 
-            modelBuilder.Entity("LibraryData.Models.Video", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Director")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Videos");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -423,6 +409,16 @@ namespace library.Migrations
                         .IsRequired();
 
                     b.HasDiscriminator().HasValue("Book");
+                });
+
+            modelBuilder.Entity("LibraryData.Models.Video", b =>
+                {
+                    b.HasBaseType("LibraryData.Models.LibraryAsset");
+
+                    b.Property<string>("Director")
+                        .IsRequired();
+
+                    b.HasDiscriminator().HasValue("Video");
                 });
 
             modelBuilder.Entity("LibraryData.Models.BranchHours", b =>
